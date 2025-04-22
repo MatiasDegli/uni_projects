@@ -1,0 +1,142 @@
+Estado inicial del sistema:
+Grafo de ciudades: ATLANTA -240-> LOS ANGELES, ATLANTA -90-> MIAMI, ATLANTA -90-> CHARLOTTE, ATLANTA -120-> HOUSTON, ATLANTA -150-> DALLAS, ATLANTA -130-> EAST RUTHERFORD
+SANTA CLARA -50-> SAN FRANCISCO
+LAS VEGAS -90-> LOS ANGELES, LAS VEGAS -90-> SAN FRANCISCO, LAS VEGAS -160-> HOUSTON, LAS VEGAS -75-> PHOENIX
+LOS ANGELES -90-> LAS VEGAS, LOS ANGELES -320-> MIAMI, LOS ANGELES -240-> ATLANTA, LOS ANGELES -80-> SAN FRANCISCO, LOS ANGELES -270-> CHARLOTTE, LOS ANGELES -190-> HOUSTON
+MIAMI -320-> LOS ANGELES, MIAMI -90-> ATLANTA, MIAMI -105-> CHARLOTTE, MIAMI -60-> ORLANDO, MIAMI -200-> DALLAS, MIAMI -140-> HOUSTON
+KANSAS CITY -210-> SAN JOSE, KANSAS CITY -95-> DALLAS, KANSAS CITY -170-> ORLANDO
+EAST RUTHERFORD -130-> ATLANTA, EAST RUTHERFORD -140-> ORLANDO
+SAN FRANCISCO -80-> LOS ANGELES, SAN FRANCISCO -90-> LAS VEGAS, SAN FRANCISCO -45-> SAN JOSE, SAN FRANCISCO -50-> SANTA CLARA, SAN FRANCISCO -120-> PHOENIX
+CHARLOTTE -270-> LOS ANGELES, CHARLOTTE -105-> MIAMI, CHARLOTTE -290-> SAN JOSE, CHARLOTTE -90-> ATLANTA, CHARLOTTE -100-> ORLANDO
+ARLINGTON
+SAN JOSE -45-> SAN FRANCISCO, SAN JOSE -290-> CHARLOTTE, SAN JOSE -180-> DALLAS, SAN JOSE -210-> KANSAS CITY
+COLUMBUS
+HOUSTON -190-> LOS ANGELES, HOUSTON -140-> MIAMI, HOUSTON -120-> ATLANTA, HOUSTON -55-> DALLAS, HOUSTON -130-> PHOENIX, HOUSTON -160-> LAS VEGAS
+GLENDALE -180-> DALLAS, GLENDALE -190-> ORLANDO
+TOPEKA -130-> DALLAS, TOPEKA -200-> ORLANDO
+INGLEWOOD -160-> DALLAS, INGLEWOOD -230-> ORLANDO
+AUSTIN -120-> PHOENIX
+ORLANDO -60-> MIAMI, ORLANDO -100-> CHARLOTTE, ORLANDO -260-> PHOENIX, ORLANDO -140-> EAST RUTHERFORD, ORLANDO -170-> KANSAS CITY, ORLANDO -190-> GLENDALE, ORLANDO -230-> INGLEWOOD, ORLANDO -200-> TOPEKA
+DALLAS -200-> MIAMI, DALLAS -180-> SAN JOSE, DALLAS -150-> ATLANTA, DALLAS -55-> HOUSTON, DALLAS -95-> KANSAS CITY, DALLAS -180-> GLENDALE, DALLAS -130-> TOPEKA, DALLAS -160-> INGLEWOOD
+PHOENIX -120-> SAN FRANCISCO, PHOENIX -130-> HOUSTON, PHOENIX -75-> LAS VEGAS, PHOENIX -260-> ORLANDO, PHOENIX -120-> AUSTIN
+
+AVL de equipos: MEXICO es padre de CHILE (izq) y de PERU (der)
+CHILE es padre de BOLIVIA (izq) y de ECUADOR (der)
+BOLIVIA es padre de ARGENTINA (izq) y de CANADA (der)
+ARGENTINA no tiene hijos
+CANADA es padre de BRASIL (izq)
+BRASIL no tiene hijos
+ECUADOR es padre de COLOMBIA (izq) y de JAMAICA (der)
+COLOMBIA es padre de COSTA RICA (der)
+COSTA RICA no tiene hijos
+JAMAICA no tiene hijos
+PERU es padre de PANAMA (izq) y de USA (der)
+PANAMA es padre de PARAGUAY (der)
+PARAGUAY no tiene hijos
+USA es padre de URUGUAY (izq) y de VENEZUELA (der)
+URUGUAY no tiene hijos
+VENEZUELA no tiene hijos
+
+Mapeo de partidos: CANADA - VENEZUELA -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 2 - 1
+ARGENTINA - PERU -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 0
+BRASIL - PARAGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 4 - 1
+BOLIVIA - PANAMA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 3
+PANAMA - URUGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 3
+URUGUAY - USA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+MEXICO - JAMAICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+COLOMBIA - URUGUAY -->  Partido 1 --> Instancia: SEMIS --> Resultado: 1 - 0
+BRASIL - URUGUAY -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 0 - 1
+CANADA - CHILE -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+ECUADOR - JAMAICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 3 - 1
+CHILE - PERU -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+CANADA - URUGUAY -->  Partido 1 --> Instancia: TERCERO --> Resultado: 2 - 3
+ECUADOR - MEXICO -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+BRASIL - COSTA RICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+COLOMBIA - PARAGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 1
+PANAMA - USA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 1
+ARGENTINA - ECUADOR -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 2 - 1
+CANADA - PERU -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+BRASIL - COLOMBIA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 1
+JAMAICA - VENEZUELA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 3
+BOLIVIA - URUGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 5
+ARGENTINA - COLOMBIA -->  Partido 1 --> Instancia: FINAL --> Resultado: 1 - 0 -->  Partido 2 --> Instancia: GRUPO --> Resultado: 2 - 2
+COLOMBIA - COSTA RICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 3 - 0
+MEXICO - VENEZUELA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 1
+ECUADOR - VENEZUELA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 2
+COSTA RICA - PANAMA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 1
+ARGENTINA - CANADA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 0 -->  Partido 2 --> Instancia: SEMIS --> Resultado: 2 - 0
+COLOMBIA - PANAMA -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 5 - 0
+BOLIVIA - USA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 2
+ARGENTINA - CHILE -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+
+Las estructuras quedaron de la siguiente manera: 
+Grafo de ciudades: ATLANTA -240-> LOS ANGELES, ATLANTA -90-> MIAMI, ATLANTA -90-> CHARLOTTE, ATLANTA -120-> HOUSTON, ATLANTA -150-> DALLAS, ATLANTA -130-> EAST RUTHERFORD
+SANTA CLARA -50-> SAN FRANCISCO
+LAS VEGAS -90-> LOS ANGELES, LAS VEGAS -90-> SAN FRANCISCO, LAS VEGAS -160-> HOUSTON, LAS VEGAS -75-> PHOENIX
+LOS ANGELES -90-> LAS VEGAS, LOS ANGELES -320-> MIAMI, LOS ANGELES -240-> ATLANTA, LOS ANGELES -80-> SAN FRANCISCO, LOS ANGELES -270-> CHARLOTTE, LOS ANGELES -190-> HOUSTON
+MIAMI -320-> LOS ANGELES, MIAMI -90-> ATLANTA, MIAMI -105-> CHARLOTTE, MIAMI -60-> ORLANDO, MIAMI -200-> DALLAS, MIAMI -140-> HOUSTON
+KANSAS CITY -210-> SAN JOSE, KANSAS CITY -95-> DALLAS, KANSAS CITY -170-> ORLANDO
+EAST RUTHERFORD -130-> ATLANTA, EAST RUTHERFORD -140-> ORLANDO
+SAN FRANCISCO -80-> LOS ANGELES, SAN FRANCISCO -90-> LAS VEGAS, SAN FRANCISCO -45-> SAN JOSE, SAN FRANCISCO -50-> SANTA CLARA, SAN FRANCISCO -120-> PHOENIX
+CHARLOTTE -270-> LOS ANGELES, CHARLOTTE -105-> MIAMI, CHARLOTTE -290-> SAN JOSE, CHARLOTTE -90-> ATLANTA, CHARLOTTE -100-> ORLANDO
+ARLINGTON
+SAN JOSE -45-> SAN FRANCISCO, SAN JOSE -290-> CHARLOTTE, SAN JOSE -180-> DALLAS, SAN JOSE -210-> KANSAS CITY
+COLUMBUS
+HOUSTON -190-> LOS ANGELES, HOUSTON -140-> MIAMI, HOUSTON -120-> ATLANTA, HOUSTON -55-> DALLAS, HOUSTON -130-> PHOENIX, HOUSTON -160-> LAS VEGAS
+GLENDALE -180-> DALLAS, GLENDALE -190-> ORLANDO
+TOPEKA -130-> DALLAS, TOPEKA -200-> ORLANDO
+INGLEWOOD -160-> DALLAS, INGLEWOOD -230-> ORLANDO
+AUSTIN -120-> PHOENIX
+ORLANDO -60-> MIAMI, ORLANDO -100-> CHARLOTTE, ORLANDO -260-> PHOENIX, ORLANDO -140-> EAST RUTHERFORD, ORLANDO -170-> KANSAS CITY, ORLANDO -190-> GLENDALE, ORLANDO -230-> INGLEWOOD, ORLANDO -200-> TOPEKA
+DALLAS -200-> MIAMI, DALLAS -180-> SAN JOSE, DALLAS -150-> ATLANTA, DALLAS -55-> HOUSTON, DALLAS -95-> KANSAS CITY, DALLAS -180-> GLENDALE, DALLAS -130-> TOPEKA, DALLAS -160-> INGLEWOOD
+PHOENIX -120-> SAN FRANCISCO, PHOENIX -130-> HOUSTON, PHOENIX -75-> LAS VEGAS, PHOENIX -260-> ORLANDO, PHOENIX -120-> AUSTIN
+
+AVL de equipos: MEXICO es padre de CHILE (izq) y de PERU (der)
+CHILE es padre de BOLIVIA (izq) y de ECUADOR (der)
+BOLIVIA es padre de ARGENTINA (izq) y de CANADA (der)
+ARGENTINA no tiene hijos
+CANADA es padre de BRASIL (izq)
+BRASIL no tiene hijos
+ECUADOR es padre de COLOMBIA (izq) y de JAMAICA (der)
+COLOMBIA es padre de COSTA RICA (der)
+COSTA RICA no tiene hijos
+JAMAICA no tiene hijos
+PERU es padre de PANAMA (izq) y de USA (der)
+PANAMA es padre de PARAGUAY (der)
+PARAGUAY no tiene hijos
+USA es padre de URUGUAY (izq) y de VENEZUELA (der)
+URUGUAY no tiene hijos
+VENEZUELA no tiene hijos
+
+Mapeo de partidos: CANADA - VENEZUELA -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 2 - 1
+ARGENTINA - PERU -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 0
+BRASIL - PARAGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 4 - 1
+BOLIVIA - PANAMA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 3
+PANAMA - URUGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 3
+URUGUAY - USA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+MEXICO - JAMAICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+COLOMBIA - URUGUAY -->  Partido 1 --> Instancia: SEMIS --> Resultado: 1 - 0
+BRASIL - URUGUAY -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 0 - 1
+CANADA - CHILE -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+ECUADOR - JAMAICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 3 - 1
+CHILE - PERU -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+CANADA - URUGUAY -->  Partido 1 --> Instancia: TERCERO --> Resultado: 2 - 3
+ECUADOR - MEXICO -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+BRASIL - COSTA RICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 0
+COLOMBIA - PARAGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 1
+PANAMA - USA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 1
+ARGENTINA - ECUADOR -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 2 - 1
+CANADA - PERU -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+BRASIL - COLOMBIA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 1
+JAMAICA - VENEZUELA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 3
+BOLIVIA - URUGUAY -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 5
+ARGENTINA - COLOMBIA -->  Partido 1 --> Instancia: FINAL --> Resultado: 1 - 0 -->  Partido 2 --> Instancia: GRUPO --> Resultado: 2 - 2
+COLOMBIA - COSTA RICA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 3 - 0
+MEXICO - VENEZUELA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 1
+ECUADOR - VENEZUELA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 2
+COSTA RICA - PANAMA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 1
+ARGENTINA - CANADA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 2 - 0 -->  Partido 2 --> Instancia: SEMIS --> Resultado: 2 - 0
+COLOMBIA - PANAMA -->  Partido 1 --> Instancia: CUARTOS --> Resultado: 5 - 0
+BOLIVIA - USA -->  Partido 1 --> Instancia: GRUPO --> Resultado: 0 - 2
+ARGENTINA - CHILE -->  Partido 1 --> Instancia: GRUPO --> Resultado: 1 - 0
+
