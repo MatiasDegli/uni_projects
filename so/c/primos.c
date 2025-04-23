@@ -56,7 +56,7 @@ int siguientePrimo(int primo) {
             primo += 2;
         }
     } else {
-        return 3;
+        primo = 3;
     }
     return primo;
 }
