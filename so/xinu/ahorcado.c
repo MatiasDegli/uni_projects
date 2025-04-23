@@ -4,7 +4,8 @@
 #define TC_SETRAW 1001
 #define TC_SETNORMAL 1002
 
-shellcmd ahorcado(int nargs, char *args[]) {
+shellcmd ahorcado(int nargs, char *args[]) 
+{
 
     char palabra[] = "arquitectura";
     char adivinadas[27] = "";
@@ -31,7 +32,7 @@ shellcmd ahorcado(int nargs, char *args[]) {
         kprintf("Ingrese una letra (0 para salir): ");
         
        	c = getc(CONSOLE);
-	getc(CONSOLE);
+	    getc(CONSOLE);
 				
         if (c == '0') {
             break;
