@@ -168,5 +168,5 @@ void control_race()
 
     if(vel_b > vel_a) ganador = 'b';
 
-    kprintf("El ganador es el corredor %c", ganador);
+    printf("El ganador es el corredor %c", ganador);
 }
