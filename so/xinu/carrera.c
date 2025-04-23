@@ -13,16 +13,23 @@ Implemente las pulsaciones del teclado (teclas 1, 2, 5, y 6). A partir de las pu
 “control_race” realiza las acciones mencionadas (suspender/reanudar, matar).
 */
 
-// #include <xinu.h>
-
+#include <xinu.h>
 #define ASCII_ESC 27
-#define TC_SETRAW 1001
-#define TC_SETNORMAL 1002
+
+void corredor_a();
+void corredor_b();
+void muestra_carrera();
+void control_race();
 
 int vel_a = 0;
 int vel_b = 0;
 
-corredor_a()
+void carrera()
+{
+    resume(create(control_race, 1024, 20, "control", 0));
+}
+
+void corredor_a()
 {
 	while(1) {
 		vel_a++;
@@ -30,7 +37,7 @@ corredor_a()
 
 }
 
-corredor_b()
+void corredor_b()
 {
 
 	while(1) 
@@ -39,8 +46,7 @@ corredor_b()
 	}
 }
 
-
-muestra_carrera() 
+void muestra_carrera() 
 {
 	/* limpiar toda la pantalla */
 	printf( "%c[2J", ASCII_ESC );
@@ -61,26 +67,25 @@ muestra_carrera()
 
 }
 
-
-shellcmd carrera(int nargs, char *args[])
+void control_race()
 {
+    int a = 0, b = 0, c, d = 0;
 
-    int c;
-    int a = 0, b = 0;
+    int pid_a = create(corredor_a, 1024, 20, "corredor_a", 0);
+    int pid_b = create(corredor_b, 1024, 20, "corredor_b", 0);
+    int pid_mu = create(muestra_carrera, 1024, 20, "muestra", 0);
 
-    int pid_a = create(corredor_a, 1024, 20, "send A", 1);
-    int pid_b = create(corredor_b, 1024, 20, "send B", 1);
-
+    resume(pid_mu);
     resume(pid_a);
 	resume(pid_b);
-    resume(create(muestra_carrera, 1024, 20, "send B", 1));
 
-    control(CONSOLE, TC_SETRAW, 0, 0);
+    kprintf("Ingrese un valor 1, 2, 5 o 6 para finalizar");
+	control(CONSOLE, TC_MODER, 0, 0);
 
     while (1)
     {
 
-        c=getc(CONSOLE);
+        c=getchar();
 
         switch (c)
         {
@@ -90,11 +95,21 @@ shellcmd carrera(int nargs, char *args[])
             {
                 suspend(pid_a);
                 a = 1;
+                c++;
+                if(c == 2) // Ambos procesos suspend
+                {
+                    suspend(pid_mu);
+                }
             }
             else
             {
+                if(c == 2) // Muestra en suspend
+                {
+                    resume(pid_mu);
+                }
                 resume(pid_a);
                 a = 0;
+                c--;
             }
 
             break;
@@ -103,26 +118,34 @@ shellcmd carrera(int nargs, char *args[])
 
         if(b == 0)
         {
-            suspend(pid_a);
+            suspend(pid_b);
             b = 1;
+            c++;
+            if(c == 2) suspend(pid_mu); // Ambos procesos suspend
         }
         else
         {
-            resume(pid_a);
+            if(c == 2) resume(pid_mu); // Muestra en suspend
+            resume(pid_b);
             b = 0;
+            c--;
         }
 
             break;
 
         case 5: 
             
-            kill(pid_a, SIGKILL);
+            kill(pid_a);
+            a = -1;
+            if(b == -1) c = -1;
 
             break;
 
         case 6: 
 
-            kill(pid_b, SIGKILL);
+            kill(pid_b);
+            b = -1;
+            if(a == -1) c = -1;
 
             break;
 
@@ -132,14 +155,18 @@ shellcmd carrera(int nargs, char *args[])
             break;
         }
 
-        if(c==-1) break;
+        if(c == -1)
+        {
+            kill(pid_mu);
+            break;
+        } 
     }
 
-    control(CONSOLE, TC_SETNORMAL, 0, 0);
+	control(CONSOLE, TC_MODEC, 0, 0);
 
     char ganador = 'a'; 
 
-    if(b > a) ganador = 'b';
+    if(vel_b > vel_a) ganador = 'b';
 
     kprintf("El ganador es el corredor %c", ganador);
 }
