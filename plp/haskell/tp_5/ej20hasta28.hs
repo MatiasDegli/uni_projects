@@ -19,14 +19,26 @@ maxOcurr3 a b c = (mayor, cantidad)
 ejercicio 24
 -}
 
-cadenaDigitos :: Int -> String
-cadenaDigitos n
+potencia10 :: Int -> Int -> Int
+potencia10 n i
+    | 10^i <= n = potencia10 n (i+1)
+    | otherwise = (i-1)
 
-
-repeticion :: Int -> Int
-repeticion n = n*10
+cadenaDigitos :: Int -> String -> String
+cadenaDigitos n c
+    | n > 0 = cadenaDigitos (n `mod` divisor) (c ++ show (sumatoria i i 0) ++ "\n")
+    | otherwise = c
+  where
+    divisor = 10 ^ potencia10 n 0
+    i = n `div` divisor
 
 sumatoria :: Int -> Int -> Int -> Int
-sumatoria i n m 
-    | i > 1 = sumatoria i-1 (n + repeticion m) (repeticion m)
+sumatoria i m n 
+    | i >= 1 = sumatoria (i-1) (m*10) (n + m)
     | otherwise = n
+
+main :: IO ()
+main = do
+    putStrLn "Ingrese el numero"
+    n <- readLn
+    putStrLn (cadenaDigitos n "")
