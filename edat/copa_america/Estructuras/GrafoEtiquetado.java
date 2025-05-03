@@ -461,7 +461,7 @@ public class GrafoEtiquetado {
         NodoVert buscado = new NodoVert(elem, null);
         NodoVert recorre = inicio;
 
-        while (recorre != null && !inicio.getElem().equals(elem)) {
+        while (recorre != null && !recorre.equals(buscado)) {
             recorre = recorre.getSigVertice();
         }
 
@@ -569,10 +569,10 @@ public class GrafoEtiquetado {
 
         int[] tiempoMenor = new int[] { Integer.MAX_VALUE };
 
-        if(origen != null && destino != null){
+        if(origen != null && destino != null && evitar != null){
             rapida = menorRapidoAux(origen, destino, evitar, actual, rapida, 0, tiempoMenor);
         }
-
+        
         return rapida;
     }
 

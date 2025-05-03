@@ -17,25 +17,6 @@ public class MapeoAMuchos {
         return Math.abs(valorDominio.toString().hashCode()) % TAM;
     }
 
-    /*public boolean insertar(Object valorDominio, Object valorRango) {
-        boolean encontrado = false;
-
-        int pos = hash(valorDominio);
-
-        NodoHashMapeoM aux = tabla[pos];
-
-        while (!encontrado && aux != null) {
-            encontrado = aux.getDominio().equals(valorDominio);
-            aux = aux.getEnlace();
-        }
-
-        if (!encontrado) {
-            
-        }
-
-        return !encontrado;
-    }*/
-
     public boolean asociar(Object valorDominio, Object valorRango) {
 
         int pos = hash(valorDominio);

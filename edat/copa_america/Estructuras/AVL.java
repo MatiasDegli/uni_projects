@@ -345,19 +345,7 @@ public class AVL {
         eliminarAux(sucesor.getElem(), sucesor, padreSucesor, abueloSucesor);
         actual.setElem(sucesor.getElem());
     }
-
-    // private void dosHijos(NodoAVL actual) {
-
-    //     NodoAVL der = actual.getIzquierdo();
-
-    //     while (der.getDerecho() != null) {
-    //         der = der.getDerecho();
-    //     }
-
-    //     eliminarAux(der.getElem(), der);
-    //     actual.setElem(der.getElem());
-    // }
-
+    
     public Lista listar() {
         Lista lis = new Lista();
 
@@ -386,16 +374,21 @@ public class AVL {
 
     private void listarRangoAux(Lista lis, Comparable piso, Comparable techo, NodoAVL recorre) {
 
-        if (recorre != null && recorre.getElem().compareTo(techo) <= 0) {
-            listarRangoAux(lis, piso, techo, recorre.getIzquierdo());
-
-            if (recorre.getElem().compareTo(piso) >= 0) {
-                lis.insertar(lis.longitud() + 1, recorre.getElem());
+        if (recorre != null) {
+            
+            if(recorre.getElem().compareTo(piso) < 0){
+                listarRangoAux(lis, piso, techo, recorre.getDerecho());
             }
-
-            listarRangoAux(lis, piso, techo, recorre.getDerecho());
+            else if(recorre.getElem().compareTo(piso) >= 0) {
+                listarRangoAux(lis, piso, techo, recorre.getIzquierdo());
+                if(recorre.getElem().compareTo(techo)<=0){
+                    lis.insertar(lis.longitud() + 1, recorre.getElem());                
+                }
+                if(recorre.getElem().compareTo(techo) < 0){
+                    listarRangoAux(lis, piso, techo, recorre.getDerecho());
+                }
+            }
         }
-
     }
 
     public Comparable minimoElem() {
