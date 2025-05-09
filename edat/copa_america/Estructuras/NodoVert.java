@@ -45,7 +45,7 @@ public class NodoVert {
     @Override
     public boolean equals(Object obj) {
         NodoVert otro = (NodoVert) obj;  
-        return this.elem == otro.elem;
+        return this.elem.equals(otro.elem);
     }
 
 }

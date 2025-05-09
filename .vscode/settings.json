@@ -2,6 +2,6 @@
     "files.associations": {
         "stdio.h": "c",
         "stdbool.h": "c",
-        "recu23portado": "c"
+        "carrera": "c"
     }
 }

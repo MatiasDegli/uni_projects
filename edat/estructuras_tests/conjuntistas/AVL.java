@@ -348,18 +348,6 @@ public class AVL {
         actual.setElem(sucesor.getElem());
     }
 
-    // private void dosHijos(NodoAVL actual) {
-
-    //     NodoAVL der = actual.getIzquierdo();
-
-    //     while (der.getDerecho() != null) {
-    //         der = der.getDerecho();
-    //     }
-
-    //     eliminarAux(der.getElem(), der);
-    //     actual.setElem(der.getElem());
-    // }
-
     public Lista listar() {
         Lista lis = new Lista();
 
