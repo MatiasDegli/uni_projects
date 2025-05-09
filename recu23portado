@@ -1,0 +1,77 @@
+/* primos entre el nÃºmero 1 y MAX */
+#include <xinu.h>
+
+#define MAX 500000
+
+pid32 pid_control;
+int total = 0;
+
+void primos_5000(void)
+{
+    int i, n, primo;
+    kprintf("\n   ");
+
+    for (i = 1; i <= 5000; i++)
+    {
+        primo = 1;
+        n = 2;
+
+        while (n <= i / 2 && primo)
+        {
+            if (i % n == 0)
+                primo = 0;
+
+            n++;
+        }
+
+        if (primo) kprintf("%d ", i);
+    }
+
+    total++;
+    
+    send(pid_control);
+}
+
+
+void primos_5000(void)
+{
+    int i, n, primo;
+    kprintf("\n   ");
+
+    for (i = 5001; i <= 9999; i++)
+    {
+        primo = 1;
+        n = 2;
+
+        while (n <= i / 2 && primo)
+        {
+            if (i % n == 0)
+                primo = 0;
+
+            n++;
+        }
+
+        if (primo) kprintf("%d ", i);
+    }
+
+    total++;
+
+    send(pid_control);
+}
+
+
+void control(void)
+{
+    pid_control = getpid();
+
+    pid32 pid_5000 = create(primos_5000, 1024, 20, "encontrar", 0);
+    pid32 pid_9999 = create(primos_9999, 1024, 20, "encontrar", 0);
+    resume(pid_5000);
+    resume(pid_9999);
+
+    
+    receive();
+    receive();
+
+    kprintf("Total : %i \n", total);
+}
