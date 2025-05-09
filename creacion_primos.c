@@ -4,7 +4,7 @@
 #define MAX 500000
 
 pid32 pid_control;
-int total = 0;
+int finalizado = 0;
 
 void primos_5000(void)
 {
@@ -24,16 +24,16 @@ void primos_5000(void)
             n++;
         }
 
-        if (primo) kprintf("%d ", i);
+        if (primo)
+            kprintf("%d ", i);
     }
 
-    total++;
-    
+    finalizado++;
+
     send(pid_control);
 }
 
-
-void primos_5000(void)
+void primos_9999(void)
 {
     int i, n, primo;
     kprintf("\n   ");
@@ -51,27 +51,46 @@ void primos_5000(void)
             n++;
         }
 
-        if (primo) kprintf("%d ", i);
+        if (primo)
+            kprintf("%d ", i);
     }
 
-    total++;
+    finalizado++;
 
     send(pid_control);
 }
-
 
 void control(void)
 {
     pid_control = getpid();
 
-    pid32 pid_5000 = create(primos_5000, 1024, 20, "encontrar", 0);
-    pid32 pid_9999 = create(primos_9999, 1024, 20, "encontrar", 0);
-    resume(pid_5000);
-    resume(pid_9999);
+    pid32 pid_liviano = create(primos_5000, 1024, 10, "encontrar", 0);
+    pid32 pid_pesado = create(primos_9999, 1024, 20, "encontrar", 0);
+    resume(pid_pesado);
+    resume(pid_liviano);
 
-    
+    while (1)
+    {
+        sleepms(80);
+        if (finalizado == 0)
+            chprio(pid_pesado, 5);
+        else
+            break;
+
+        sleepms(20);
+        if (finalizado == 0)
+            chprio(pid_pesado, 20);
+        else
+            break;
+    }
+
     receive();
     receive();
 
-    kprintf("Total : %i \n", total);
+    kprintf("finalizado : %i \n", finalizado);
+}
+
+void creacion_primos(void)
+{
+    resume(create(control, 1024, 30, "control", 0));
 }
