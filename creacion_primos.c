@@ -64,22 +64,26 @@ void control(void)
 {
     pid_control = getpid();
 
-    pid32 pid_liviano = create(primos_5000, 1024, 10, "encontrar", 0);
-    pid32 pid_pesado = create(primos_9999, 1024, 20, "encontrar", 0);
+    pid32 pid_liviano = create(primos_5000, 1024, 10, "liviano", 0);
+    pid32 pid_pesado = create(primos_9999, 1024, 20, "pesado", 0);
     resume(pid_pesado);
     resume(pid_liviano);
 
     while (1)
     {
-        sleepms(80);
         if (finalizado == 0)
-            chprio(pid_pesado, 5);
+        {
+            chprio(pid_pesado, 20);
+            sleepms(8);
+        }
         else
             break;
 
-        sleepms(20);
         if (finalizado == 0)
-            chprio(pid_pesado, 20);
+        {
+            chprio(pid_pesado, 5);
+            sleepms(2); 
+        }
         else
             break;
     }
