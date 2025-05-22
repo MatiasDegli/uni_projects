@@ -28,8 +28,7 @@ private NodoVert ubicarVertice(Object elem){
 public Lista primerCaminoPesoMenor(Object vertA, Object vertB, int pesoMax){
 
     Lista camino = new Lista(), actual = new Lista();
-    boolean[] seguir = new boolean[1];
-    seguir[0] = true;
+    boolean[] seguir = {true};
     NodoVert origen = ubicarVertice(vertA);
     NodoVert destino = ubicarVertice(vertB);
 
