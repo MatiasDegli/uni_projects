@@ -1,0 +1,6 @@
+public Lista primerCaminoMenorPesoYLong(NodoVert origen, NodoVert destino, int pesoMax, int longMax){
+
+    boolean[] seguir = {true};
+    Lista camino = new Lista(), actual = new Lista();
+
+    

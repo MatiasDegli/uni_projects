@@ -1,0 +1,16 @@
+{-
+Dar una definicion de la funcion:
+ allDiferent :: Int-> Int-> Int-> Bool
+ se podra utilizar la funcion /= con la propiedad que m /= n es True si m y n no son
+ iguales. Probar la funcion allDiferent con diferentes valores.
+-}
+
+allDiferent :: Int -> Int -> Int -> Bool
+allDiferent a b c = (a /= b && a /= c && b /= c)
+
+main :: IO ()
+main = do
+    print (allDiferent 1 2 3)   -- True
+    print (allDiferent 1 1 3)   -- False
+    print (allDiferent 5 5 5)   -- False
+    print (allDiferent 7 8 7)   -- False

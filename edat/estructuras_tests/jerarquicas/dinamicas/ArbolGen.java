@@ -638,7 +638,7 @@ public class ArbolGen {
         Lista camino = new Lista(), actual = new Lista();
 
         if (raiz != null) {
-            actual.insertar(actual.longitud()+1, raiz.getElem());
+            actual.insertar(actual.longitud() + 1, raiz.getElem());
             hojaLejanaAux(raiz, camino, actual);
         }
 
@@ -652,16 +652,56 @@ public class ArbolGen {
             if (hijo == null && actual.longitud() > camino.longitud()) {
                 camino.vaciar();
                 llenar(camino, actual);
-            }
-            else{
+            } else {
                 while (hijo != null) {
-                    actual.insertar(actual.longitud()+1, hijo.getElem());
+                    actual.insertar(actual.longitud() + 1, hijo.getElem());
                     hojaLejanaAux(hijo, camino, actual);
                     hijo = hijo.getHermanoDerecho();
                 }
             }
-            
+
         }
+        actual.eliminar(actual.longitud());
+    }
+
+    public Lista listaQueJustificaLaAltura() {
+        Lista lis = new Lista(), actual = new Lista();
+
+        int[] altura = new int[1];
+        altura[0] = 0;
+
+        alturaAux(lis, actual, raiz, altura, 0);
+
+        return lis;
+    }
+
+    private void alturaAux(Lista lis, Lista actual, NodoGen recorre, int[] altura, int alturaActual) {
+        
+        if (recorre != null){
+
+            actual.insertar(actual.longitud() + 1, recorre);
+            NodoGen hijo = recorre.getHijoIzquierdo();
+
+            // Sólo en hojas actualiza la lista
+            if (hijo == null && alturaActual > altura[0]) {
+                
+                lis.vaciar();
+                Lista copia = actual.clone();
+                int len = copia.longitud();
+
+                for (int i = 1; i <= len; i++) {
+                    lis.insertar(i, copia.recuperar(1));
+                    copia.eliminar(1);
+                }
+                altura[0] = alturaActual;   
+            }
+            
+            while (hijo != null) {
+                alturaAux(lis, actual, hijo, altura, alturaActual + 1);
+                hijo = hijo.getHermanoDerecho();
+            }
+        }
+
         actual.eliminar(actual.longitud());
     }
 

@@ -97,7 +97,7 @@ public class GrafoEtiquetado {
                 eliminarArcoAux(adyacente.getVertice(), eliminar);
                 adyacente = adyacente.getSigAdyacente();
             }
-
+        
         }
     }
 
@@ -379,7 +379,7 @@ public class GrafoEtiquetado {
             adyacente = adyacente.getSigAdyacente();
         }
     }
-
+    
     public Lista listarEnAnchura() {
         Lista visitados = new Lista();
 
@@ -391,7 +391,7 @@ public class GrafoEtiquetado {
             }
             aux = aux.getSigVertice();
         }
-
+        
         return visitados;
     }
 
@@ -598,6 +598,7 @@ public class GrafoEtiquetado {
             }
 
         }
+        
         actual.eliminar(actual.longitud());
     }
 

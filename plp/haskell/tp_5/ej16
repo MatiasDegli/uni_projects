@@ -1,0 +1,4 @@
+hacerEspacio :: Int -> String
+hacerEspacio n
+    |n > 0 = hacerEspacio (n-1) ++ " "
+    |otherwise = ""

@@ -1,0 +1,17 @@
+{-
+Definir una funcion
+ justificarCentro :: Int-> String-> String
+ de forma que justificarCentro n st nos devuelva un String de longitud n en el cual se
+ le han agregado espacios en ambos extremos de st de modo que quede centrado. Validar
+ todos los casos.
+ Dar una solucion utilizando la clausula where y otra sin ella
+-}
+
+justificarCentro :: Int -> String -> String
+justificarCentro n s
+    |longitud > n = "Longitud invalida"   
+    |longitud == n = s
+    |(longitud + 1) >= n = s
+    |otherwise = justificarCentro n (" " ++ s ++ " ")
+    where
+        longitud = length s
