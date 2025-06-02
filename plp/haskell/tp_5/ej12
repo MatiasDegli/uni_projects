@@ -1,7 +1,0 @@
-{-
-De nir una funcion tal que dado un Char que contenga un dgito, devuelva el valor numerico
- de dicho dgito.
--}
-
-valorChar :: Char -> Int
-valorChar c = fromEnum c - fromEnum '0'
